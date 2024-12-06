@@ -25,7 +25,7 @@ show_help() {
 # Переменные для обработки вывода
 log_file=""
 error_file=""
-exec 3>&1 4>&2
+
 
 # Обработка аргументов командной строки
 while getopts ":upl:he:-:" opt; do
