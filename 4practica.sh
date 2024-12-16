@@ -82,8 +82,8 @@ while getopts ":upl:he:-:" opt; do
 done
 
 # Направление вывода в файл, если указано
-if [[ -n "$log_file" ]]; then
-  if [[ -w $(dirname "$log_file") ]]; then
+if [ -n "$log_file" ]; then
+  if [ -w $(dirname "$log_file") ]; then
     exec 1>"$log_file"
   else
     echo "Ошибка: нет доступа к пути $log_file для записи." >&2
@@ -92,8 +92,8 @@ if [[ -n "$log_file" ]]; then
 fi
 
 # Направление вывода ошибок в файл, если указано
-if [[ -n "$error_file" ]]; then
-  if [[ -w $(dirname "$error_file") ]]; then
+if [ -n "$error_file" ]; then
+  if [ -w $(dirname "$error_file") ]; then
     exec 2>"$error_file"
   else
     echo "Ошибка: нет доступа к пути $error_file для записи." >&2
@@ -102,7 +102,7 @@ if [[ -n "$error_file" ]]; then
 fi
 
 # Вывод результата
-if [[ -n "$output" ]]; then
+if [ -n "$output" ]; then
     echo "$output"
 else
     echo "Не указаны параметры для выполнения." >&2
