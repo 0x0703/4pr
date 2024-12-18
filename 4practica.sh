@@ -71,7 +71,11 @@ while getopts ":upl:he:-:" opt; do
             esac
             ;;
         \?)
-            echo "Недопустимый параметр: -$OPTARG" >&2
+            if [ -n "$error_file" ]; then 
+                echo "Недопустимый параметр:" -$OPTARG" >> "$error_file"
+            else
+                echo "Недопустимый параметр: -$OPTARG" >&2
+            fi
             exit 1
             ;;
         :)
